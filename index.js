@@ -31,8 +31,12 @@ const playButton = document.querySelector('button#play');
 const downloadButton = document.querySelector('button#download');
 const startCamera = document.querySelector('button#start');
 const stopRecordingBtn = document.querySelector('button#stopRecording');
-
+const resumeRecording = document.querySelector('button#resumeRecording');
 let webcamStream;
+
+resumeRecording.addEventListener('click', () => {
+  mediaRecorder.resume();
+});
 
 stopRecordingBtn.addEventListener('click', () => {
   stopRecording();
@@ -45,9 +49,11 @@ stopRecordingBtn.addEventListener('click', () => {
 stopVideo.addEventListener('click', () => {
   stopStreamedVideo();
 });
+
 pauseButton.addEventListener('click', () => {
-  console.log('pause ');
+  mediaRecorder.pause();
 });
+
 recordButton.addEventListener('click', () => {
   if (recordButton.textContent === 'Start Recording') {
     console.log('start recording fork');
